@@ -901,6 +901,7 @@ func (p *OAuthProxy) SkipAuthProxy(rw http.ResponseWriter, req *http.Request) {
 // them to authenticate
 func (p *OAuthProxy) Proxy(rw http.ResponseWriter, req *http.Request) {
 	session, err := p.getAuthenticatedSession(rw, req)
+	logger.Printf("===Added Log=== Logging Session Proxy: %s", session)
 	switch err {
 	case nil:
 		// we are authenticated
